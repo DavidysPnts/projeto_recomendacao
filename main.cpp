@@ -97,9 +97,6 @@ void exibir_compras_cliente(string cod_cliente) {
     }
 }
 
-// ==========================================
-// FUNÇÃO PRINCIPAL
-// ==========================================
 int main() {
     // 1. Carrega os dados do arquivo CSV/TXT para a memória
     carregar_base("dados_venda_cluster_0.csv"); 
