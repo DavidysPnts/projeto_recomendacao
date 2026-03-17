@@ -9,7 +9,6 @@
 using namespace std;
 
 // --- DADOS DA ATIVIDADE 1 ---
-// O 'extern' avisa que essas variáveis foram criadas no arquivo da Atividade 1
 extern vector<string> vetor_clientes;
 extern map<string, int> mapa_clientes;
 extern vector<string> vetor_produtos;
