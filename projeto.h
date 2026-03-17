@@ -22,6 +22,7 @@ extern vector<vector<float>> matriz_similaridade;
 
 // --- PROTÓTIPOS DAS FUNÇÕES ---
 void carregar_base(const char* caminho_arquivo);
+void exibir_compras_cliente(string cod_cliente);
 void criar_matriz_densa();
 void computar_similaridade_jaccard();
 
