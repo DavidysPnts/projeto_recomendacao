@@ -1,6 +1,8 @@
 #ifndef PROJETO
 #define PROJETO
 
+#include <iostream>
+#include <cstdio>
 #include <vector>
 #include <string>
 #include <map>
@@ -8,21 +10,19 @@
 
 using namespace std;
 
-// --- DADOS DA ATIVIDADE 1 ---
-extern vector<string> vetor_clientes;
-extern map<string, int> mapa_clientes;
-extern vector<string> vetor_produtos;
-extern map<string, int> mapa_produtos;
-extern vector<list<int>> compras_clientes;
+struct Recomendador {
+    vector<string> vetor_clientes;
+    vector<string> vetor_produtos;
+    map<string, int> mapa_clientes;
+    map<string, int> mapa_produtos;
+    vector<list<int>> compras_clientes;
+    vector<vector<int>> matriz_densa;
+    vector<vector<float>> matriz_similaridade;
+};
 
-// --- DADOS DA ATIVIDADE 2 ---
-extern vector<vector<int>> matriz_densa;
-extern vector<vector<float>> matriz_similaridade;
-
-// --- PROTÓTIPOS DAS FUNÇÕES ---
-void carregar_base(const char* caminho_arquivo);
-void exibir_compras_cliente(string cod_cliente);
-void criar_matriz_densa();
-void computar_similaridade_jaccard();
+void carregar_base(Recomendador &rec, const char* nome_arquivo);
+void criar_matriz_densa(Recomendador &rec);
+void computar_similaridade_jaccard(Recomendador &rec);
+void exibir_compras_cliente(Recomendador &rec, string cod_cliente);
 
 #endif
