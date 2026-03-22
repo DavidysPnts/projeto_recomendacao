@@ -19,6 +19,16 @@ void criar_matriz_densa(Recomendador &rec) {
 void computar_similaridade_jaccard(Recomendador &rec) {
     int n = (int)rec.vetor_clientes.size();
     int p = (int)rec.vetor_produtos.size();
+
+    rec.matriz_intersecao.assign(n, vector<int>(n, 0));
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < p; k++) {
+                rec.matriz_intersecao[i][j] += rec.matriz_densa[i][k] * rec.matriz_densa[j][k];
+            }
+        }
+    }
     
     rec.matriz_similaridade.assign(n, vector<float>(n, 0.0f));
 
@@ -30,11 +40,8 @@ void computar_similaridade_jaccard(Recomendador &rec) {
                 continue;
             }
 
-            int intersecao = 0;
+            int intersecao = rec.matriz_intersecao[i][j];
 
-            for (int k = 0; k < p; k++) {
-                if (rec.matriz_densa[i][k] == 1 && rec.matriz_densa[j][k] == 1) intersecao++;
-            }
             if (soma_i > 0) {
                 rec.matriz_similaridade[i][j] = 1.0f - ((float)intersecao / soma_i);
             } else {

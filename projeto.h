@@ -17,6 +17,7 @@ struct Recomendador {
     map<string, int> mapa_produtos;
     vector<list<int>> compras_clientes;
     vector<vector<int>> matriz_densa;
+    vector<vector<int>> matriz_intersecao;
     vector<vector<float>> matriz_similaridade;
 };
 
