@@ -32,6 +32,7 @@ void carregar_base(Recomendador &rec, const char* nome_arquivo);
 void criar_matriz_densa(Recomendador &rec);
 void computar_similaridade_jaccard(Recomendador &rec);
 void exibir_compras_cliente(Recomendador &rec, string cod_cliente);
+bool compararPorScore(const ProdutoRanqueado &a, const ProdutoRanqueado &b);
 vector<ProdutoRanqueado> gerar_recomendacoes_oficial(Recomendador &rec, string cod_cliente_c, int k);
 
 #endif
