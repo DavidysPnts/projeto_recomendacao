@@ -9,11 +9,11 @@ bool compararPorScore(const ProdutoRanqueado &a, const ProdutoRanqueado &b) {
 }
 
 // O Módulo de Recomendação Exato
-vector<ProdutoRanqueado> gerar_recomendacoes_oficial(Recomendador &rec, string cod_cliente_c, int k) {
+vector<ProdutoRanqueado> gerar_recomendacoes(Recomendador &rec, string cod_cliente_c, int k) {
     vector<ProdutoRanqueado> recomendacoes_finais;
 
     if (rec.mapa_clientes.find(cod_cliente_c) == rec.mapa_clientes.end()) {
-        cout << "Cliente não encontrado." << endl;
+        cout << "Cliente nao encontrado." << endl;
         return recomendacoes_finais;
     }
 
