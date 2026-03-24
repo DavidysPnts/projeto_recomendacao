@@ -6,7 +6,7 @@ int main() {
     Recomendador rec;
     cout << "Sistema de Recomendacao:\n" << endl;
 
-    carregar_base(rec, "dados_venda_cluster_0.csv");
+    carregar_base(rec, "dados_venda_cluster_2.csv");
     criar_matriz_densa(rec);
 
     // Teste do padrão:
@@ -21,7 +21,10 @@ int main() {
     clock_t t4 = clock();
     double tempo_otimizado = (double)(t4 - t3) / CLOCKS_PER_SEC;
 
-    
+    // Exibicao simples dos tempos
+    cout << "\n--- Comparativo de Performance ---" << endl;
+    cout << "Tempo Padrao: " << tempo_padrao << " segundos" << endl;
+    cout << "Tempo Otimizado: " << tempo_otimizado << " segundos" << endl;
 
     cout << "\nVerificacao de Dados:" << endl;
     exibir_compras_cliente(rec, "99IE1A01");
