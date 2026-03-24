@@ -12,7 +12,6 @@
 
 using namespace std;
 
-// No p3 tem uns vetores que não adicionei na struct por uso temporário!
 struct Recomendador {
     vector<string> vetor_clientes;
     vector<string> vetor_produtos;

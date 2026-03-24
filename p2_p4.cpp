@@ -23,22 +23,19 @@ void computar_similaridade_jaccard(Recomendador &rec, bool modo_otimizado) {
     rec.matriz_intersecao.assign(n, vector<int>(n, 0));
 
     if (modo_otimizado) {
-        // MODO OTIMIZADO (Atividade 4)
+        // Modo Otimizado
         for (int i = 0; i < n; i++) {
-            // j começa em i para calcular apenas metade da matriz (Simetria)
             for (int j = i; j < n; j++) {
                 int soma = 0;
                 for (int k = 0; k < p; k++) {
-                    // Multiplicação direta A * A_transposta sem criar a transposta
                     soma += rec.matriz_densa[i][k] * rec.matriz_densa[j][k];
                 }
                 rec.matriz_intersecao[i][j] = soma;
-                rec.matriz_intersecao[j][i] = soma; // Aproveita a simetria: C[j][i] = C[i][j]
+                rec.matriz_intersecao[j][i] = soma;
             }
         }
     } else {
-        // --- ALGORITMO PADRÃO ---
-        // 1. Cria a transposta na memória
+        // Modo Padrão
         vector<vector<int>> transposta(p, vector<int>(n));
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < p; j++) {
@@ -46,7 +43,6 @@ void computar_similaridade_jaccard(Recomendador &rec, bool modo_otimizado) {
             }
         }
         
-        // 2. Calcula a matriz inteira (j começa em 0)
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) { 
                 double soma = 0;

@@ -21,22 +21,21 @@ int main() {
     clock_t t4 = clock();
     double tempo_otimizado = (double)(t4 - t3) / CLOCKS_PER_SEC;
 
-    // Exibicao simples dos tempos
     cout << "\n--- Comparativo de Performance ---" << endl;
     cout << "Tempo Padrao: " << tempo_padrao << " segundos" << endl;
     cout << "Tempo Otimizado: " << tempo_otimizado << " segundos" << endl;
 
     cout << "\nVerificacao de Dados:" << endl;
-    exibir_compras_cliente(rec, "99IE1A01");
-    exibir_compras_cliente(rec, "9OFA7P01");
     exibir_compras_cliente(rec, "99DL9N01");
+    exibir_compras_cliente(rec, "77602301");
+    exibir_compras_cliente(rec, "99E35501");
     
     cout << "\nDistancia Jaccard entre Cliente 0 e Cliente 1: " 
          << rec.matriz_similaridade[0][1] << endl;
 
     cout << "\nRecomendacoes:" << endl;
 
-    string clientes_teste[] = {"99IE1A01", "9OFA7P01", "99DL9N01"};
+    string clientes_teste[] = {"99DL9N01", "77602301", "99E35501"};
     int k = 5;
 
     for (int i = 0; i < 3; i++) {
