@@ -8,7 +8,20 @@ int main() {
 
     carregar_base(rec, "dados_venda_cluster_0.csv");
     criar_matriz_densa(rec);
-    computar_similaridade_jaccard(rec);
+
+    // Teste do padrão:
+    clock_t t1 = clock();
+    computar_similaridade_jaccard(rec, false);
+    clock_t t2 = clock();
+    double tempo_padrao = (double)(t2 - t1) / CLOCKS_PER_SEC;
+
+    // Teste do otimizado:
+    clock_t t3 = clock();
+    computar_similaridade_jaccard(rec, true); 
+    clock_t t4 = clock();
+    double tempo_otimizado = (double)(t4 - t3) / CLOCKS_PER_SEC;
+
+    
 
     cout << "\nVerificacao de Dados:" << endl;
     exibir_compras_cliente(rec, "99IE1A01");

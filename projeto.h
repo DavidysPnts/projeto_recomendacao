@@ -8,6 +8,7 @@
 #include <map>
 #include <list>
 #include <algorithm>
+#include <ctime>
 
 using namespace std;
 
@@ -30,7 +31,7 @@ struct ProdutoRanqueado {
 
 void carregar_base(Recomendador &rec, const char* nome_arquivo);
 void criar_matriz_densa(Recomendador &rec);
-void computar_similaridade_jaccard(Recomendador &rec);
+void computar_similaridade_jaccard(Recomendador &rec, bool modo_otimizado);
 void exibir_compras_cliente(Recomendador &rec, string cod_cliente);
 bool compararPorScore(const ProdutoRanqueado &a, const ProdutoRanqueado &b);
 vector<ProdutoRanqueado> gerar_recomendacoes(Recomendador &rec, string cod_cliente_c, int k);
