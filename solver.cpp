@@ -1,8 +1,6 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
-
-// Inclui o seu cabeçalho principal onde as funções estão declaradas
-#include "projeto.h" 
+#include "projeto.h"
 
 namespace py = pybind11;
 
@@ -31,6 +29,16 @@ PYBIND11_MODULE(Recomendador, r) {
         .def_readwrite("score_ranqueamento", &ProdutoRanqueado::score_ranqueamento);
     // ----------------------------------------------------------------------
 
+    r.def(
+        "carregar_base",
+        &carregar_base,
+        "Carrega o CSV via C++"
+    );
+
+    r.def("exibir_compras_cliente",
+        &exibir_compras_cliente,
+        "Exibe compras via C++");
+        
     r.def(
         "gerar_recomendacoes",
         &gerar_recomendacoes,
