@@ -1,4 +1,8 @@
 #include "projeto.h"
+#include <pybind11/pybind11.h>
+#include <pybind11/stl.h> // Obrigatorio para conversao de std::vector e listas do Python
+
+namespace py = pybind11;
 
 using namespace std;
 
@@ -78,4 +82,14 @@ void computar_similaridade_jaccard(Recomendador &rec, bool modo_otimizado) {
     } else {
         cout << "Matriz de similaridade computada (modo padrao)." << endl;
     }
+}
+
+PYBIND11_MODULE(p2_p4, m) {
+    m.doc() = "Modulo de Recomendacao (P2 a P4) compilado para Python";
+
+    m.def("computar_similaridade", &calcular_similaridade_python, "Calcula Jaccard",
+          py::arg("n_clientes"),
+          py::arg("n_produtos"),
+          py::arg("lista_compras"),
+          py::arg("modo_otimizado") = true)
 }
