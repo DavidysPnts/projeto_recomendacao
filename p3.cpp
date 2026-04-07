@@ -62,13 +62,3 @@ vector<ProdutoRanqueado> gerar_recomendacoes(Recomendador &rec, string cod_clien
 
     return recomendacoes_finais;
 }
-
-PYBIND11_MODULE(p3, m) {
-    m.doc() = "Modulo de Recomendacao (P2 a P4) compilado para Python";
-
-    m.def("computar_similaridade", &calcular_similaridade_python, "Calcula Jaccard",
-          py::arg("n_clientes"),
-          py::arg("n_produtos"),
-          py::arg("lista_compras"),
-          py::arg("modo_otimizado") = true)
-}

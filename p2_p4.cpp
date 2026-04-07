@@ -83,13 +83,3 @@ void computar_similaridade_jaccard(Recomendador &rec, bool modo_otimizado) {
         cout << "Matriz de similaridade computada (modo padrao)." << endl;
     }
 }
-
-PYBIND11_MODULE(p2_p4, m) {
-    m.doc() = "Modulo de Recomendacao (P2 a P4) compilado para Python";
-
-    m.def("computar_similaridade", &calcular_similaridade_python, "Calcula Jaccard",
-          py::arg("n_clientes"),
-          py::arg("n_produtos"),
-          py::arg("lista_compras"),
-          py::arg("modo_otimizado") = true)
-}

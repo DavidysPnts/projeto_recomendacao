@@ -17,7 +17,7 @@ struct Recomendador {
     vector<string> vetor_produtos;
     map<string, int> mapa_clientes;
     map<string, int> mapa_produtos;
-    vector<list<int>> compras_clientes; // Tirar da struct?
+    vector<vector<int>> compras_clientes; // Tirar da struct?
     vector<vector<int>> matriz_densa;
     vector<vector<int>> matriz_intersecao; // Tirar da struct?
     vector<vector<float>> matriz_similaridade;
